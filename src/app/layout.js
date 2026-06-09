@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Toast } from '@heroui/react';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,10 +28,12 @@ export default function RootLayout({ children }) {
       lang="en"
       data-theme="dark"
       className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
-        <main>{children}</main>
+         <main>{children}</main>
+            <Toast.Provider />
         <Footer></Footer>
       </body>
     </html>
