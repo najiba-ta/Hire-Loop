@@ -1,11 +1,16 @@
 'use client';
-import React from 'react';
 import { useSession } from "@/lib/auth-client";
 import { Briefcase, Persons, Thunderbolt, CircleCheck } from '@gravity-ui/icons';
 import { DashboardStats } from '@/components/dashboard/DashboardStats';
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const RecruiterDashboardHomePage = () => {
+     const router = useRouter();
 
+    useEffect(() => {
+    console.log("Mounted");
+}, []);
     const { data: session, isPending } = useSession();
 
     if (isPending) {

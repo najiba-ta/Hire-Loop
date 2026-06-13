@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
-         <main>{children}</main>
+         <div>{children}</div>
             <Toast.Provider />
         <Footer></Footer>
       </body>
