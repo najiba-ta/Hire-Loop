@@ -1,38 +1,37 @@
-'use client';
+"use client";
 import { useSession } from "@/lib/auth-client";
-import { Briefcase, Persons, Thunderbolt, CircleCheck } from '@gravity-ui/icons';
-import { DashboardStats } from '@/components/dashboard/DashboardStats';
+import {
+  Briefcase,
+  Persons,
+  Thunderbolt,
+  CircleCheck,
+} from "@gravity-ui/icons";
+import { DashboardStats } from "@/components/dashboard/DashboardStats";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 const RecruiterDashboardHomePage = () => {
-     const router = useRouter();
+  const { data: session, isPending } = useSession();
+  if (session === undefined) {
+    return <div>Loading...</div>;
+  }
 
-    useEffect(() => {
-    console.log("Mounted");
-}, []);
-    const { data: session, isPending } = useSession();
+  const recruiterStats = [
+    { title: "Total Job Posts", value: "50", icon: Briefcase },
+    { title: "Total Applicants", value: "1,100", icon: Persons },
+    { title: "Active Jobs", value: "90", icon: Thunderbolt },
+    { title: "Jobs Closed", value: "48", icon: CircleCheck },
+  ];
 
-    if (isPending) {
-        return <div>Loading...</div>
-    }
+  const user = session?.user;
+  console.log("Session data in RecruiterDashboardHomePage:", session);
 
-    const recruiterStats = [
-        { title: "Total Job Posts", value: "50", icon: Briefcase },
-        { title: "Total Applicants", value: "1,100", icon: Persons },
-        { title: "Active Jobs", value: "90", icon: Thunderbolt },
-        { title: "Jobs Closed", value: "48", icon: CircleCheck },
-    ];
-
-    const user = session?.user;
-    console.log("Session data in RecruiterDashboardHomePage:", session);
-
-    return (
-        <div>
-            <h2 className="text-4xl">Welcome back, {user?.name}</h2>
-            <DashboardStats statsData={recruiterStats} />
-        </div>
-    );
+  return (
+    <div>
+      <h2 className="text-4xl">Welcome back, {user?.name}</h2>
+      <DashboardStats statsData={recruiterStats} />
+    </div>
+  );
 };
 
 export default RecruiterDashboardHomePage;

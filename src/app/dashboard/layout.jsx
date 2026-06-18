@@ -9,11 +9,11 @@ export const metadata = {
 
 export default function DashboardLayout({ children }) {
   return (
-      <body suppressHydrationWarning>
+      <div suppressHydrationWarning>
         <main className='flex min-h-screen'>
             <DashboardSidebar/>
            <div className='flex-1'> {children}</div>
         </main>
-      </body>
+      </div>
   );
 }

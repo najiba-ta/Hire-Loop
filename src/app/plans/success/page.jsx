@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 // Gravity UI Icons for a high-quality production finish
 import { CircleCheckFill, Envelope, ArrowLeft } from '@gravity-ui/icons';
-import { stripe } from '@/lib/strype';
+import { stripe } from '@/lib/stripe';
 import { createSubscription } from '@/lib/actions/subscriptions';
 
 

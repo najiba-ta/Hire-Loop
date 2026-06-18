@@ -97,6 +97,12 @@ export default function JobFilters({
                 <ListBox.Item id="product" className="text-zinc-200 hover:bg-purple-600 hover:text-white rounded-lg px-3 py-2 text-sm cursor-pointer capitalize">
                   <span>Product</span>
                 </ListBox.Item>
+                <ListBox.Item id="technology" className="text-zinc-200 hover:bg-purple-600 hover:text-white rounded-lg px-3 py-2 text-sm cursor-pointer capitalize">
+                  <span>Technology</span>
+                </ListBox.Item>
+                <ListBox.Item id="sales" className="text-zinc-200 hover:bg-purple-600 hover:text-white rounded-lg px-3 py-2 text-sm cursor-pointer capitalize">
+                  <span>Sales</span>
+                </ListBox.Item>
               </ListBox>
             </Select.Popover>
           </Select>

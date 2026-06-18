@@ -4,7 +4,7 @@ import { headers } from 'next/headers'
 
 
 import { getUserSession } from '@/lib/core/session'
-import { PLAN_PRICE_ID, stripe } from '@/lib/strype'
+import { PLAN_PRICE_ID, stripe } from '@/lib/stripe'
 
 export async function POST(request) {
     try {

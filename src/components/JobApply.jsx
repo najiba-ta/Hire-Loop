@@ -20,15 +20,15 @@ const JobApply = ({ job, applicant }) => {
             [name]: value
         }));
     };
-
+    console.log(job);
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Combine the pre-existing job/applicant data with the new form data
         const submissionData = {
             jobId: job?._id,
+            companyId: job.companyId,
             jobTitle: job?.jobTitle,
-            companyName: job?.companyName,
             applicantId: applicant?.id,
             applicantName: applicant?.name,
             applicantEmail: applicant?.email,

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Card, Button, Link, TextField, Label, InputGroup, Input } from "@heroui/react";
 import { Eye, EyeSlash, At, ShieldKeyhole } from "@gravity-ui/icons";
 import { signIn } from "@/lib/auth-client";
-import { Seaweed_Script } from "next/font/google";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SigninPage() {
@@ -13,10 +12,8 @@ export default function SigninPage() {
     const [password, setPassword] = useState("");
     const router = useRouter()
     const searchParams = useSearchParams();
-    console.log(searchParams);
     const redirectTo = searchParams.get("redirect") || "/";
-    console.log(redirectTo);
-
+    // console.log("Redirecting to:", redirectTo);
     // UI States
     const [isVisible, setIsVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -44,7 +41,7 @@ export default function SigninPage() {
                 setSuccess("Signed in successfully! Redirecting...");
                 setEmail("");
                 setPassword("");
-                router.push(redirectTo)
+                router.push(redirectTo);
             }
         } catch (err) {
             setError("An unexpected network error occurred.");
